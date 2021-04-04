@@ -1,4 +1,4 @@
-from os.path import join, isfile, split
+from os.path import join, isfile
 import sys
 from urllib.request import urlopen
 import datetime
