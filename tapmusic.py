@@ -6,7 +6,7 @@ import datetime
 def get_file_name():
   today = datetime.date.today()
   # If day <= 5, save chart as past month's
-  # Fallback to december if month is January
+  # Fallback to December if month is January
   month = today.month - (today.day <= 5) or 12
   year = today.year
 
