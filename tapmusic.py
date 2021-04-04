@@ -53,7 +53,7 @@ username = ''
 # i.e., C:\\Users\\User\\Pictures
 download_path = ''
 
-# `period` and `size` are default values, if changed, you may want to 
+# `period` and `size` are default values, if you change `period`, you may want to 
 # change `get_file_name` aswell, because that function only considers 
 # the "1 month" period, maybe I'll adapt this is the future...
 period = '1 month'
