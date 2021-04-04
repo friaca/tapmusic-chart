@@ -1,4 +1,4 @@
-from os.path import join, isfile
+from os.path import join, isfile, split
 import sys
 from urllib.request import urlopen
 import datetime
@@ -11,6 +11,21 @@ def get_file_name():
   year = today.year
 
   return '{:02d}-{:02d}.jpg'.format(month, year)
+
+def resolve_duplicate_file(file_path):
+  if isfile(file_path):
+    expand = 1
+    while True:
+        expand += 1
+        new_file_path = f"{file_path.replace('.jpg', '')}_{str(expand)}.jpg"
+        if isfile(new_file_path):
+            continue
+        else:
+            file_path = new_file_path
+            break
+
+  return file_path
+
 
 # ====== Constants ====== #
 URL = 'https://tapmusic.net/collage.php?'
@@ -55,10 +70,9 @@ def main():
     print('`period` and `size` must be a key of their respective maps')
     sys.exit(1)
 
-  print(f'Download a {size} chart for user {username}, from the past {period}...')
+  print(f'Downloading a {size} chart for user {username}, from the past {period}...')
 
-  path_joined = join(download_path, file_name)
-  full_path = f'{path_joined}_2' if isfile(path_joined) else path_joined
+  full_path = resolve_duplicate_file(join(download_path, file_name))
 
   try:
     with open(full_path, 'wb') as file:
