@@ -31,11 +31,11 @@ def resolve_duplicate_file(file_path):
 URL = 'https://tapmusic.net/collage.php?'
 
 PERIODS_MAP = {
-  '7 days': '7days',
+  '7 days': '7day',
   '1 month': '1month',
-  '3 months': '3months',
-  '6 months': '6months',
-  '12 months': '12months',
+  '3 months': '3month',
+  '6 months': '6month',
+  '12 months': '12month',
   'overall': 'overall'
 }
 
