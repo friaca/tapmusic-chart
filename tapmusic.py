@@ -58,7 +58,7 @@ download_path = ''
 # the "1 month" period, maybe I'll adapt this is the future...
 period = '1 month'
 size = '5x5'
-captions = True
+captions = False
 file_name = get_file_name()
 
 def main():
@@ -76,7 +76,7 @@ def main():
 
   try:
     with open(full_path, 'wb') as file:
-      final_url = f'{URL}user={username}&type={PERIODS_MAP[period]}&size={SIZES_MAP[size]}&caption={str(captions).lower()}'
+      final_url = f'{URL}user={username}&type={PERIODS_MAP[period]}&size={SIZES_MAP[size]}{"&caption=true" if captions else ""}'
 
       with urlopen(final_url) as response:
         file.write(response.read())
